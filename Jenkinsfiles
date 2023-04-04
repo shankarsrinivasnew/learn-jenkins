@@ -1,16 +1,20 @@
 node ('workstation') {
+    env.sample_url = "ss.scripted.com"
     try {
-        stage ("one") {
-            echo "stage one"
-            sh exit 1
+        withCredentials([usernameColonPassword(credentialsId: 'SSH', variable: 'USERPASS')]) {
+            stage ("one") {
+                echo "stage one"
+                sh env
+                sh 'env > /tmp/env'
+            }
+            stage ("two") {
+                echo "stage two"
+            }
         }
-        stage ("two") {
-            echo "stage two"
-        }
-    }
-    catch (e) {
-        stage ("three") {
-            echo "i wil run on failures"
+        catch (e) {
+            stage ("three") {
+                echo "i wil run on failures"
+            }
         }
     }
 }
