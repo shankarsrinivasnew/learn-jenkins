@@ -11,7 +11,7 @@ pipeline {
     stages {
         stage ("one") {
             steps {
-                echo "stage one"
+                echo tage one
             }
         }
         stage ("two") {
@@ -23,6 +23,9 @@ pipeline {
     post{
         always {
             echo " i say hello always"
+        }
+        failure {
+            echo " you failed , you should try again"
         }
     }
 }
