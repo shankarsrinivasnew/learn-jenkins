@@ -2,10 +2,10 @@ node ('workstation') {
     try {
         stage ("one") {
             echo "stage one"
+            sh exit 1
         }
         stage ("two") {
             echo "stage two"
-            sh exit 1
         }
     }
     catch (e) {
