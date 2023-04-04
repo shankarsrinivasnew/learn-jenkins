@@ -13,9 +13,11 @@ node ('workstation') {
                 sh 'env > /tmp/env'
             }
         }
-        stage ("two") {
-            input message: 'Do you want to deploy this application?', ok: 'Yes', submitterParameter: 'shankar'
-            echo "stage two"
+        if (PERSON == "Mr Jenkins") {
+            stage ("two") {
+                input message: 'Do you want to deploy this application?', ok: 'Yes', submitterParameter: 'shankar'
+                echo "stage two"
+            }
         }
     }
     catch (e) {
