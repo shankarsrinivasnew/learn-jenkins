@@ -1,8 +1,12 @@
 pipeline {
     // agent any
+    // name based agent
+    // agent {
+    //     node { label 'workstation'}
+    // }
     // label based agent
     agent {
-        node { label 'workstation'}
+        label 'terraform'
     }
     stages {
         stage ("one") {
