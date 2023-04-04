@@ -1,12 +1,12 @@
 pipeline {
     agent any
     stage {
-        stage ("one) {
+        stage ("one") {
             steps {
                 echo stage one
             }
         }
-        stage ("two) {
+        stage ("two") {
             steps {
                 echo stage two
             }
