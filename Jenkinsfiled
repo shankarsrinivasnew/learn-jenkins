@@ -22,7 +22,7 @@ pipeline {
         stage ("two") {
             steps {
                 echo "stage two"
-                sh 'env'
+                sh 'env' > /tmp/env
             }
         }
     }
