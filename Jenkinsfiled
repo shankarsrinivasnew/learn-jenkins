@@ -8,6 +8,9 @@ pipeline {
     agent {
         label 'terraform'
     }
+    environment {
+        sample_url = "ss.example.com"
+    }
     stages {
         stage ("one") {
             steps {
