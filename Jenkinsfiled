@@ -12,7 +12,7 @@ pipeline {
         stage ("one") {
             steps {
                 echo "stage one"
-                sh exit 1
+                exit 1
             }
         }
         stage ("two") {
