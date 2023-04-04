@@ -24,6 +24,10 @@ pipeline {
             }
         }
         stage ("two") {
+            input{
+                message "should we continue?"
+                ok "yes"
+            }
             steps {
                 echo "stage two"
                 sh 'env > /tmp/env'
