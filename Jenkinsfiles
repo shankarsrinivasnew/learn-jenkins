@@ -7,9 +7,9 @@ node ('workstation') {
                 sh "env"
                 sh 'env > /tmp/env'
             }
-            stage ("two") {
-                echo "stage two"
-            }
+        }
+        stage ("two") {
+            echo "stage two"
         }
         catch (e) {
             stage ("three") {
