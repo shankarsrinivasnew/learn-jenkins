@@ -12,6 +12,9 @@ pipeline {
         sample_url = "ss.example.com"
         SSH = credentials("SSH")
     }
+    parameters{
+        string(name: 'shankar', defaultValue: 'Mr linux', description: 'The name of the worker')
+    }
     stages {
         stage ("one") {
             steps {
