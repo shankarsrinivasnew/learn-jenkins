@@ -18,29 +18,33 @@ pipeline {
         choice(name: 'CHOICE', choices: ['One', 'Two', 'Three'], description: 'Pick something')
     }
     stages {
-        stage ("one") {
-            when {
-                environment name: 'PERSON', value: 'sss'
-            }
-            steps {
-                echo "stage one"
-            }
-        }
-        stage ("two") {
-            input {
-                message "should we continue?"
-                ok "yes please continue"
-                parameters {
-                    string(name: 'PERSON', defaultValue: 'sss', description: 'Who should I say hello to?')
+        stage ("all together") {
+            parallel {
+                stage ("one") {
+                    when {
+                        environment name: 'PERSON', value: 'sss'
+                    }
+                    steps {
+                        echo "stage one"
+                    }
                 }
-            }
-            when {
-                environment name: 'PERSON', value: 'sss'
-                // beforeInput true
-            }
-            steps {
-                echo "stage two"
-                sh 'env > /tmp/env'
+                stage ("two") {
+                    input {
+                        message "should we continue?"
+                        ok "yes please continue"
+                        parameters {
+                            string(name: 'PERSON', defaultValue: 'sss', description: 'Who should I say hello to?')
+                        }
+                    }
+                    when {
+                        environment name: 'PERSON', value: 'sss'
+                        // beforeInput true
+                    }
+                    steps {
+                        echo "stage two"
+                        sh 'env > /tmp/env'
+                    }
+                }
             }
         }
     }
