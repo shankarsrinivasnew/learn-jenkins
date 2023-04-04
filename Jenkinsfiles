@@ -14,7 +14,7 @@ node ('workstation') {
             }
         }
         stage ("two") {
-            input message: 'Do you want to deploy this application?', ok: 'Yes', reject: 'no'
+            input(id: 'deploy_approval', message: 'Approve deployment?', ok: 'Deploy', reject: 'Cancel')
             echo "stage two"
         }
     }
