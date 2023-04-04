@@ -36,6 +36,7 @@ pipeline {
             }
             when {
                 environment name: 'PERSON', value: 'shankar'
+                beforeInput true
             }
             steps {
                 echo "stage two"
