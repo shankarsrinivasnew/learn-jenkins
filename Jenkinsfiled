@@ -20,4 +20,9 @@ pipeline {
             }
         }
     }
+    post{
+        always {
+            echo " i say hello always"
+        }
+    }
 }
