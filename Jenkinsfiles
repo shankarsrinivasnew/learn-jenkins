@@ -1,8 +1,15 @@
 node ('workstation') {
-    stage ("one") {
-        echo "stage one"
+    try {
+        stage ("one") {
+            echo "stage one"
+        }
+        stage ("two") {
+            echo "stage two"
+        }
     }
-    stage ("two") {
-        echo "stage two"
+    catch (e) {
+        stage ("three") {
+            echo "i wil run on failures"
+        }
     }
 }
