@@ -12,7 +12,6 @@ pipeline {
         stage ("one") {
             steps {
                 echo "stage one"
-                exit 1
             }
         }
         stage ("two") {
