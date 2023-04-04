@@ -31,12 +31,12 @@ pipeline {
                 message "should we continue?"
                 ok "yes please continue"
                 parameters {
-                    string(name: 'PERSON', defaultValue: 'shankar', description: 'Who should I say hello to?')
+                    string(name: 'PERSON', defaultValue: 'sss', description: 'Who should I say hello to?')
                 }
             }
             when {
-                environment name: 'PERSON', value: 'shankar'
-                beforeInput true
+                environment name: 'PERSON', value: 'sss'
+                // beforeInput true
             }
             steps {
                 echo "stage two"
