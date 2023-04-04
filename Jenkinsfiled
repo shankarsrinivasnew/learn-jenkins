@@ -10,6 +10,7 @@ pipeline {
     }
     environment {
         sample_url = "ss.example.com"
+        SSH = credentials("SSH")
     }
     stages {
         stage ("one") {
