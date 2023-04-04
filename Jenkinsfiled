@@ -24,9 +24,12 @@ pipeline {
             }
         }
         stage ("two") {
-            input{
+            input {
                 message "should we continue?"
                 ok "yes please continue"
+                parameters {
+                    choice(name: 'CHOICE', choices: ['1', '2', '3'], description: 'Pick something')
+                }
             }
             steps {
                 echo "stage two"
