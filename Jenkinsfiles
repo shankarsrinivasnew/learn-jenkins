@@ -4,17 +4,17 @@ node ('workstation') {
         withCredentials([usernameColonPassword(credentialsId: 'SSH', variable: 'USERPASS')]) {
             stage ("one") {
                 echo "stage one"
-                sh "env"
+                sh 'env'
                 sh 'env > /tmp/env'
             }
         }
         stage ("two") {
             echo "stage two"
         }
-        catch (e) {
-            stage ("three") {
-                echo "i wil run on failures"
-            }
+    }
+    catch (e) {
+        stage ("three") {
+            echo "i wil run on failures"
         }
     }
 }
