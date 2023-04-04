@@ -1,12 +1,8 @@
-node ('workstation'){
+node ('workstation') {
     stage ("one") {
-        steps {
-            echo "stage one"
-        }
+        echo "stage one"
     }
     stage ("two") {
-        steps {
-            echo "stage two"
-        }
+        echo "stage two"
     }
 }
