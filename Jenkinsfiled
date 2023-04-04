@@ -15,11 +15,13 @@ pipeline {
         stage ("one") {
             steps {
                 echo "stage one"
+
             }
         }
         stage ("two") {
             steps {
                 echo "stage two"
+                sh 'env'
             }
         }
     }
