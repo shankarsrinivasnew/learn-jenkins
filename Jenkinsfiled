@@ -24,9 +24,6 @@ pipeline {
             }
         }
         stage ("two") {
-            parameters {
-                choice(name: 'CHOICE', choices: ['1', '2', '3'], description: 'Pick something')
-            }
             input {
                 message "should we continue?"
                 ok "yes please continue"
